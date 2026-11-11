@@ -15,7 +15,7 @@ const certificados = [
   {
     titulo: "Crie um site simples usando HTML, CSS e JavaScript",
     categoria: "Desenvolvimento Web",
-    instituicao: "\fundação Bradesco",
+    instituicao: "fundação Bradesco",
     ano: "2025",
     arquivo: "assets/certificados/" + encodeURIComponent(
       "Crie um site simples usando HTML, CSS e JavaScript.pdf"
