@@ -1,0 +1,80 @@
+name: Publicar Portfolio Tech Premium
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - name: Obter arquivos
+        uses: actions/checkout@v4
+
+      - name: Preparar site e atualizar versoes
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -R assets css js _site/
+
+          python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          pagina = Path("_site/index.html")
+          html = pagina.read_text(encoding="utf-8")
+          versao = os.environ["GITHUB_SHA"][:12]
+
+          arquivos = (
+              "css/style.css",
+              "js/certificados.js",
+              "js/main.js"
+          )
+
+          for arquivo in arquivos:
+              padrao = (
+                  rf'(?<="){re.escape(arquivo)}'
+                  rf'(?:\?[^"]*)?(?=")'
+              )
+
+              html, quantidade = re.subn(
+                  padrao,
+                  f"{arquivo}?v={versao}",
+                  html
+              )
+
+              if quantidade != 1:
+                  raise SystemExit(
+                      f"Arquivo nao encontrado: {arquivo}"
+                  )
+
+          pagina.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar publicacao
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Publicar site
+        id: deploy
+        uses: actions/deploy-pages@v4
