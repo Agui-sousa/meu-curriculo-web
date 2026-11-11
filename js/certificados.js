@@ -15,8 +15,8 @@ const certificados = [
   {
     titulo: "Crie um site simples usando HTML, CSS e JavaScript",
     categoria: "Desenvolvimento Web",
-    instituicao: "Não informada",
-    ano: "Não informado",
+    instituicao: "\fundação Bradesco",
+    ano: "2025",
     arquivo: "assets/certificados/" + encodeURIComponent(
       "Crie um site simples usando HTML, CSS e JavaScript.pdf"
     )
@@ -24,8 +24,8 @@ const certificados = [
   {
     titulo: "Fundamentos de TI - Hardware e Software",
     categoria: "Fundamentos de TI",
-    instituicao: "Não informada",
-    ano: "Não informado",
+    instituicao: "fundação Bradesco",
+    ano: "2023",
     arquivo: "assets/certificados/" + encodeURIComponent(
       "FUNDAMENTOS DE TI HARDWARE E SOFTWARE.pdf"
     )
@@ -33,8 +33,8 @@ const certificados = [
   {
     titulo: "Linguagem de Programação C# - Avançado",
     categoria: "Programação",
-    instituicao: "Não informada",
-    ano: "Não informado",
+    instituicao: "fundação Bradesco",
+    ano: "2023",
     arquivo: "assets/certificados/" + encodeURIComponent(
       "Linguagem de Programação C# - Avançado.pdf"
     )
@@ -42,8 +42,8 @@ const certificados = [
   {
     titulo: "Linguagem de Programação C# - Básico",
     categoria: "Programação",
-    instituicao: "Não informada",
-    ano: "Não informado",
+    instituicao: "fundação Bradesco",
+    ano: "2023",
     arquivo: "assets/certificados/" + encodeURIComponent(
       "Linguagem de Programação C# - Básico.pdf"
     )
@@ -51,13 +51,24 @@ const certificados = [
   {
     titulo: "Segurança em Tecnologia da Informação",
     categoria: "Segurança da Informação",
-    instituicao: "Não informada",
-    ano: "Não informado",
+    instituicao: "fundação Bradesco",
+    ano: "2026",
     arquivo: "assets/certificados/" + encodeURIComponent(
       "Segurança em Tecnologia da Informação.pdf"
     )
+ 
+  },
+  {
+    titulo: "Certificação em Redes",
+    categoria: "Redes de Computadores",
+    instituicao: "BluePex",
+    ano: "2026",
+    arquivo: "assets/certificados/" + encodeURIComponent(
+      "Certificação em Redes.pdf"
+    )
   }
 ];
+
 
 // 02. ELEMENTOS DA INTERFACE
 
